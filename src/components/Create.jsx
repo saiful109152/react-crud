@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 export default function Create() {
@@ -13,6 +13,7 @@ export default function Create() {
     const handleSubmit = (event) => {
         event.preventDefault();
         createUser();
+        setUser({});
     }
 
     const createUser = () => {
@@ -27,15 +28,15 @@ export default function Create() {
             <div className='container'>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input onChange={handleInput} name="name" type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" />
+                        <input onChange={handleInput} name="name" value={user.name || ""} type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input onChange={handleInput} name="email" type="email" className="form-control" id="email" placeholder="email" />
+                    <input onChange={handleInput} name="email" value={user.email || ""} type="email" className="form-control" id="email" placeholder="email" />
                     </div>
                     <div className="form-group">
                     <label htmlFor="Password">Password</label>
-                    <input onChange={handleInput} name="password" type="password" className="form-control" id="Password" placeholder="Password" />
+                    <input onChange={handleInput} name="password" value={user.password || ""} type="password" className="form-control" id="Password" placeholder="Password" />
                     </div>
 
                 <button onClick={handleSubmit} type="submit" className="btn btn-primary mt-1">Submit</button>

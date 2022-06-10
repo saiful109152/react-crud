@@ -2,6 +2,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About';
 import Create from './components/Create';
+import Edit from './components/Edit';
 import Home from './components/Home';
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/create' element={<Create/>} />
+        <Route path='/edit/:id' element={<Edit/>} />
       </Routes>
     </BrowserRouter>
   );
